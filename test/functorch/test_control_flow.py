@@ -6,7 +6,6 @@ from functorch.experimental import control_flow
 from functorch.experimental.control_flow import cond
 from functorch.experimental.control_flow import UnsupportedAliasMutationException
 from torch.fx.experimental.proxy_tensor import make_fx
-
 from torch.testing._internal.common_utils import run_tests, TestCase
 
 class TestControlFlow(TestCase):
@@ -391,7 +390,6 @@ class TestControlFlowTraced(TestCase):
         x = torch.randn(4)
         with self.assertRaises(AssertionError):
             make_fx(f)(x, torch.tensor(False))
-
 
     def test_assert_on_mismatch_tensor_size(self):
         def true_fn(x):
